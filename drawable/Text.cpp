@@ -1,0 +1,10 @@
+#include "Text.h"
+
+#include <iostream>
+
+void Text::display() {
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glRasterPos2f(point.getX(), point.getY());
+    auto text = (const unsigned char *)this->text.c_str();
+    glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, text);
+}
