@@ -8,6 +8,6 @@ class Point {
         Point(const int x,const int y): x{x}, y{y} {};
         void setX(const int x) { this->x = x; }
         void setY(const int y) { this->y = y; }
-        int getX() { return this->x; }
-        int getY() { return this->y; }
+        int getX() const { return this->x; }
+        int getY() const { return this->y; }
 };

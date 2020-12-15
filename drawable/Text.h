@@ -16,7 +16,6 @@ class Text: public Drawable {
             text{text}, point{point}, color{Color{0.0, 0.0, 0.0}}{};
         Text(std::string, Point point, Color color): 
             text{text}, point{point}, color{color}{}; 
-
         void display();
         ~Text(){};
 

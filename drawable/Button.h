@@ -1,23 +1,17 @@
 #pragma once
 #include <string>
-#include <GL/gl.h>
 #include <memory>
 #include "../util/Color.h"
-#include "interface/Drawable.h"
-#include "../util/Point.h"
+#include "Rectangle.h"
 #include "Text.h"
 class Button;
 
 typedef void(*Action)(Button button);
 
-class Button : public Drawable{
+class Button : public Rectangle{
     private:
-        Point point;
-        int width, height;
         std::shared_ptr<Text> text;
-        Action callback;
-        Color color;
-    
+        Action action;
     public:
         Button(const int xPos, const int yPos,
                const int width, const int height);
@@ -27,7 +21,9 @@ class Button : public Drawable{
                 const int width, const int height);
         Button(const Point point,
                 const int width, const int height, std::string text);
+
         void display() override;
-        std::string toString();
+        bool mouseHover();
+        bool mouseClick();
         ~Button() {};
 };
