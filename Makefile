@@ -1,8 +1,16 @@
 GCC = g++
 LIB = -lopengl32 -lfreeglut -lglu32
-DRAW = drawable
-SOURCES = main.cpp $(DRAW)\Button.cpp util\Color.cpp $(DRAW)\Text.cpp container\MainMenu.cpp container\FileMenu.cpp input/Mouse.cpp $(DRAW)\Rectangle.cpp container\Toolbar.cpp
+DOTHERS_P = drawable\others
+DOTHERS = $(DOTHERS_P)\Button.cpp $(DOTHERS_P)\Text.cpp
+DSHAPE_P = drawable\shape
+DSHAPE = $(DSHAPE_P)\Rectangle.cpp
+DTOOL_P = drawable\tool
+DTOOL = $(DTOOL_P)\PENCIL.cpp
+INPUT = input\Mouse.cpp
+MENU = menu\FileMenu.cpp menu\MainMenu.cpp menu\Toolbar.cpp
+UTIL = util\Color.cpp
+BOARD = board\Board.cpp board\Canvas.cpp
 OPTIONS = -g -o drawrel
 
 all:
-	$(GCC) $(OPTIONS) $(SOURCES) $(LIB)
+	$(GCC) $(OPTIONS) main.cpp $(DOTHERS) $(DSHAPE) $(DTOOL) $(INPUT) $(MENU) $(UTIL) $(BOARD) $(LIB)

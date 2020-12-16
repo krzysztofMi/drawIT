@@ -11,5 +11,4 @@ class Drawable {
     virtual bool getVisible() { return this->visible; }
     virtual void hide() { this->visible = false; }
     virtual void show() { this->visible = true; }
-
 };

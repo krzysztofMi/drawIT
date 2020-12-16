@@ -1,10 +1,13 @@
 #pragma once
 
 #include <vector>
-#include "../../drawable/Button.h"
-#include "ButtonContainer.h"
+#include <vector>
+#include "../drawable/Drawable.h"
+#include "../drawable/others/Button.h"
 
-class Menu: public ButtonContainer {
+class Menu: public Drawable {
+    protected:
+        std::vector<Button> buttons;
     public:
         virtual ~Menu(){};
         void display() override {

@@ -1,5 +1,5 @@
 #pragma once
-#include "Drawable.h"
+#include "../Drawable.h"
 #include "../../util/Point.h"
 
 class Shape: public Drawable {

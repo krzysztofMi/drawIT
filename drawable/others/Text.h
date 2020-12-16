@@ -2,9 +2,9 @@
 
 #include <GL/freeglut.h>
 #include <string>
-#include "interface/Drawable.h"
-#include "../util/Point.h"
-#include "../util/Color.h"
+#include "../Drawable.h"
+#include "../../util/Point.h"
+#include "../../util/Color.h"
 
 class Text: public Drawable {
     private:

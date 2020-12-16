@@ -1,7 +1,7 @@
 #pragma once
 
 class Point {
-    private:
+    protected:
         int x, y;
     public:
         Point(): x{0}, y{0} {};

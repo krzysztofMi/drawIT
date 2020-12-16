@@ -8,6 +8,7 @@ class Mouse {
         static int button;
         static int state;
         static bool released;
+        static void drawPointer();
     public:
         static void move(const int posX, const int posY);
         static void click(const int button, const int state, const int posX, const int posY);
@@ -18,5 +19,6 @@ class Mouse {
         static bool middleClicked();
         static bool isReleased();
 
+        static void displayPointer();
         static void log();
 };

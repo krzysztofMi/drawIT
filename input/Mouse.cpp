@@ -1,5 +1,6 @@
 #include "Mouse.h"
 #include <iostream>
+#include <GL/freeglut.h>
 
 Point Mouse::position = Point{0, 0};
 int Mouse::button = -10;
@@ -57,4 +58,26 @@ bool Mouse::isReleased() {
 
 void Mouse::log() {
      std::cout<<button<<" "<<state<<std::endl;
+}
+
+void Mouse::drawPointer() {
+	glBegin(GL_LINE_LOOP);
+        glVertex2f(-1.0f, 0.0f);
+        glVertex2f(1.0f, 0.0f);
+	glEnd();
+	glBegin(GL_LINE_LOOP);
+        glVertex2f(0.0f, 1.0f);
+        glVertex2f(0.0f, -1.0f);
+	glEnd();
+}
+
+void Mouse::displayPointer() {
+	glMatrixMode(GL_MODELVIEW);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glLineWidth(2.0f);
+	glPushMatrix();
+	glTranslatef(position.getX(), glutGet(GLUT_WINDOW_HEIGHT) - position.getY(), 1.0f);
+	glScalef(5.0f, 5.0f, 1.0f);
+	drawPointer();
+	glPopMatrix();
 }

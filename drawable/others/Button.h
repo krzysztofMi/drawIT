@@ -2,8 +2,8 @@
 #include <string>
 #include <memory>
 #include <functional>
-#include "../util/Color.h"
-#include "Rectangle.h"
+#include "../../util/Color.h"
+#include "../shape/Rectangle.h"
 #include "Text.h"
 class Button;
 
@@ -11,6 +11,8 @@ class Button : public Rectangle{
     private:
         std::shared_ptr<Text> text;
         std::function<void()> action;
+        bool mouseHover();
+        bool mouseClick();
     public:
         Button(const int xPos, const int yPos,
                const int width, const int height, std::function<void()>  action);
@@ -21,8 +23,6 @@ class Button : public Rectangle{
         Button(const Point point,
                 const int width, const int height, std::string text, std::function<void()> action);
         void display() override;
-        bool mouseHover();
-        bool mouseClick();
         bool callAction();
         ~Button() {};
 };

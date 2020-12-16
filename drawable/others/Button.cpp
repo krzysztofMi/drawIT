@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "Button.h"
-#include "../input/Mouse.h"
+#include "../../input/Mouse.h"
 
 Button::Button(const int xPos, const int yPos, 
                const int width, const int height, std::function<void()>  action) : 
@@ -28,12 +28,12 @@ void Button::display() {
     if(visible) {
         if(mouseHover()) {
             displayRectangle(Color{0.0, 0.0, 0.0});
+            mouseClick();
         } 
         else { displayRectangle(Color{0.64f, 0.63f, 0.63f});}
         if(text != nullptr) {
             text->display();
         }
-         mouseClick();
     }
 };
 
@@ -45,7 +45,7 @@ bool Button::mouseHover() {
 }
 
 bool Button::mouseClick() {
-    if(mouseHover() && Mouse::leftClicked()) {
+    if(Mouse::leftClicked()) {
         callAction();
         return true;
     }
