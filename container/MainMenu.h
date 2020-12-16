@@ -13,3 +13,4 @@ class MainMenu: public Menu {
 
         void openFileMenu();
 };
+

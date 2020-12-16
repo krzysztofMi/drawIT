@@ -4,23 +4,23 @@
 #include "../input/Mouse.h"
 
 Button::Button(const int xPos, const int yPos, 
-               const int width, const int height) : 
-               Rectangle(xPos, yPos, width, height) {};
+               const int width, const int height, std::function<void()>  action) : 
+               Rectangle(xPos, yPos, width, height), action{action} {};
 
 Button::Button(const int xPos, const int yPos, 
-               const int width, const int height, std::string text) : 
-               Rectangle(xPos, yPos, width, height) {
+               const int width, const int height, std::string text, std::function<void()>  action) : 
+               Rectangle(xPos, yPos, width, height), action{action} {
                    this->text = std::make_shared<Text>(Text{text, point});
                };
 
 Button::Button(const Point point,
-               const int width, const int height) :
-               Rectangle(point, width, height) {};  
+               const int width, const int height, std::function<void()>  action) :
+               Rectangle(point, width, height), action{action} {};  
 
 Button::Button(const Point point,
                const int width, const int height,
-               const std::string text) :
-               Rectangle(point, width, height) {
+               const std::string text, std::function<void()>  action) :
+               Rectangle(point, width, height), action{action} {
                    this->text = std::make_shared<Text>(Text{text, point});
                };
 
@@ -46,9 +46,16 @@ bool Button::mouseHover() {
 
 bool Button::mouseClick() {
     if(mouseHover() && Mouse::leftClicked()) {
-        this->action;
+        callAction();
         return true;
-    } else {
-        return false;
     }
+    return false;
+}
+
+bool Button::callAction() {
+    if(action != nullptr) {
+        this->action();
+        return true;
+    }
+    return false;
 }
