@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include "../util/Point.h"
 
 class Mouse {
@@ -20,5 +21,5 @@ class Mouse {
         static bool isReleased();
 
         static void displayPointer();
-        static void log();
+        static void log(const std::string&);
 };

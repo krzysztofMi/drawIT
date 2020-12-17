@@ -33,6 +33,7 @@ int main(int argc, char **argv) {
     glutCreateWindow("Drawrel");
     glutDisplayFunc(display);
     glutMouseFunc(Mouse::click);
+    glutMotionFunc(Mouse::move);
     glutPassiveMotionFunc(Mouse::move);
     glutIdleFunc(idle);
     init();

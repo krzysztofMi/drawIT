@@ -36,6 +36,7 @@ bool Mouse::leftClicked() {
         return true;
     }
     return false;
+    return false;
 }
 
 bool Mouse::middleClicked() {
@@ -56,8 +57,10 @@ bool Mouse::isReleased() {
     return released;
 }
 
-void Mouse::log() {
-     std::cout<<button<<" "<<state<<std::endl;
+void Mouse::log(const std::string& info) {
+    std::cout<<info<<std::endl;
+    std::cout<<"Position: "<<position.getX()<<" "<<position.getY()<<std::endl;
+    std::cout<<button<<" "<<state<<std::endl;
 }
 
 void Mouse::drawPointer() {

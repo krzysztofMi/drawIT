@@ -1,5 +1,6 @@
 #include "Pencil.h"
 #include "../shape/DrawablePoint.h"
+#include <iostream>
 
 void Pencil::draw(Canvas& canvas) {
     if(insideCanvas(canvas)) {

@@ -14,6 +14,7 @@ class DrawablePoint: public Point, public Shape {
             Color c = Toolbar::color;
             glColor3f(c.getR(), c.getG(), c.getB());
             glBegin(GL_POINTS);
+                glPointSize(50);
                 glVertex2i(x, y);
             glEnd();
         }
