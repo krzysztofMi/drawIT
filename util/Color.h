@@ -1,4 +1,5 @@
 #pragma once
+namespace drawIt{
 
 class Color {
     private: 
@@ -11,3 +12,5 @@ class Color {
         float getG() { return this->g; }
         float getB() { return this->b; }
 };
+
+}

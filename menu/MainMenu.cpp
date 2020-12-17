@@ -1,9 +1,13 @@
 #include "MainMenu.h"
 #include <iostream>
+#include "../board/Board.h"
+namespace drawIt{
 
-MainMenu::MainMenu(const int screenHeight): fileMenu{FileMenu{screenHeight}}{
-    buttons.push_back(Button{Point{0, screenHeight-20}, 20, 20, "File", std::bind(&MainMenu::openFileMenu, this)});
-    buttons.push_back(Button{Point{20, screenHeight-20}, 20, 20, "Toolbar", nullptr});
+MainMenu::MainMenu(): fileMenu{FileMenu{}}{
+    buttons.push_back(Button{Point{0, 0}, 53, 20, "File",
+                 std::bind(&MainMenu::openFileMenu, this)});
+    buttons.push_back(Button{Point{53, 0}, 80, 20, "Toolbar", 
+                 []()->void{Board::getInstance().switchToolbar();}});
     visible = true;
 };
 
@@ -16,4 +20,6 @@ void MainMenu::display() {
 
 void MainMenu::openFileMenu() {
     fileMenu.show();
+}
+
 }

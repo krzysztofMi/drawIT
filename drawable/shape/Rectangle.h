@@ -5,6 +5,8 @@
 #include "../../util/Point.h"
 #include "../../util/Color.h"
 
+namespace drawIt {
+
 class Rectangle : public Shape {
     protected:
         Point point;
@@ -20,6 +22,10 @@ class Rectangle : public Shape {
         bool inside(const Point& point) override;
         void display() override;
 
+        void setWidth(const int width) {this->width = width;}
+        void setHeigth(const int height) {this->height = height;}
         Point getPoint() { return this->point; }
         ~Rectangle(){};
 };
+
+}

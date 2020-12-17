@@ -3,6 +3,8 @@
 #include <GL/freeglut.h>
 #include "Shape.h"
 #include "../../menu/Toolbar.h"
+#include "../../board/Board.h"
+namespace drawIt{
 
 class DrawablePoint: public Point, public Shape {
     public:
@@ -14,8 +16,7 @@ class DrawablePoint: public Point, public Shape {
             Color c = Toolbar::color;
             glColor3f(c.getR(), c.getG(), c.getB());
             glBegin(GL_POINTS);
-                glPointSize(50);
-                glVertex2i(x, y);
+                glVertex2i(x, Board::screenHeight-y);
             glEnd();
         }
 
@@ -26,3 +27,5 @@ class DrawablePoint: public Point, public Shape {
             return false;
         }
 };
+
+}

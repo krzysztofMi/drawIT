@@ -2,19 +2,21 @@
 #include "../menu/MainMenu.h"
 #include "../menu/Toolbar.h"
 #include "../drawable/tool/Pencil.h"
+#include "../drawable/tool/RectangleTool.h"
+#include <iostream>
+namespace drawIt{
 
-Board::Board(const int screenHeight, const int screenWidth): 
-        screenHeight{screenHeight}, screenWidth{screenWidth}, 
-        canvas{Point{10, 10}, screenWidth, screenHeight}, menu{screenHeight}, toolbar{} {
+int Board::screenWidth = 0;
+int Board::screenHeight = 0;
+
+Board::Board() : 
+        canvas{Point{10, 10}, Board::screenWidth, Board::screenHeight}, menu{}, toolbar{} {
     tool = std::make_shared<Pencil>();
 }
 
-Board& Board::getInstance(const int screenHeight, const int screenWidth) {
-    static Board b(screenHeight, screenWidth);
-    return b;
-}
 Board& Board::getInstance(){
-    static Board b(glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
+    setWindowSize();
+    static Board b;
     return b;
 }
 
@@ -26,13 +28,40 @@ void Board::display() {
     toolbar.display();
 }
 
-void Board::clear() { drawable.clear(); }
+void Board::clear() { canvas.clean(); }
 
 void Board::switchTool() {
-    switch(toolbar.getMode()) {
-        case Mode::PENCIL:
-             tool = std::make_shared<Pencil>();
-        default:
-            break;
+    if(toolbar.getChange()) {
+        toolbar.setChange(false);
+        switch(toolbar.getMode()) {
+            case Mode::PENCIL:
+                tool = std::make_shared<Pencil>();
+                break;
+            case Mode::RECTANGLE:
+                tool = std::make_shared<RectangleTool>();
+                break;
+            default:
+                break;
+        }
     }
+}
+
+void Board::setWindowSize() {
+    screenWidth = glutGet(GLUT_WINDOW_WIDTH);
+    screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
+}
+
+void Board::setWindowSize(int x, int y) {
+    screenWidth = x;
+    screenHeight = y;
+}
+
+void Board::switchToolbar() {
+        if(toolbar.getVisible()) {
+            toolbar.hide();
+        }else {
+            toolbar.show();
+        }
+}
+
 }

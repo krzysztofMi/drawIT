@@ -3,6 +3,8 @@
 #include <string>
 #include "../util/Point.h"
 
+namespace drawIt{
+
 class Mouse {
     private: 
         static Point position;
@@ -23,3 +25,5 @@ class Mouse {
         static void displayPointer();
         static void log(const std::string&);
 };
+
+}

@@ -3,6 +3,8 @@
 #include <memory> 
 #include "input/Mouse.h"
 #include "board/Board.h"
+#include <iostream>
+using namespace drawIt;
 
 void display(void) {
     glClear(GL_COLOR_BUFFER_BIT);
@@ -14,10 +16,9 @@ void display(void) {
 }
 
 void init(void) {
-    int screenWidth = glutGet(GLUT_WINDOW_WIDTH);
-    int screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
-    Board::getInstance(screenHeight, screenWidth);
-    gluOrtho2D(0, screenWidth, 0, screenHeight);
+    Board::setWindowSize();
+    Board::getInstance();
+    gluOrtho2D(0, Board::screenWidth, 0, Board::screenHeight);
     glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
@@ -30,11 +31,12 @@ void idle(void) {
 int main(int argc, char **argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-    glutCreateWindow("Drawrel");
+    glutCreateWindow("DrawIT");
     glutDisplayFunc(display);
     glutMouseFunc(Mouse::click);
     glutMotionFunc(Mouse::move);
     glutPassiveMotionFunc(Mouse::move);
+    glutReshapeFunc(Board::setWindowSize);
     glutIdleFunc(idle);
     init();
     glutMainLoop();

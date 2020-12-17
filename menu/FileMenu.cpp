@@ -1,11 +1,12 @@
 #include "FileMenu.h"
 #include "../board/Board.h"
+namespace drawIt{
 
-FileMenu::FileMenu(const int screenHeight) {
-    buttons.push_back(Button{Point{0, screenHeight-40}, 20, 20, "New", std::bind(&FileMenu::newFile, this)});
-    buttons.push_back(Button{Point{0, screenHeight-60}, 20, 20, "Open", std::bind(&FileMenu::open, this)});
-    buttons.push_back(Button{Point{0, screenHeight-80}, 20, 20, "Save", std::bind(&FileMenu::save, this)});
-    buttons.push_back(Button{Point{0, screenHeight-100}, 20, 20, "Exit", std::bind(&FileMenu::exit, this)});
+FileMenu::FileMenu() {
+    buttons.push_back(Button{Point{0, 20}, 53, 20, "New", std::bind(&FileMenu::newFile, this)});
+    buttons.push_back(Button{Point{0, 40}, 53, 20, "Open", std::bind(&FileMenu::open, this)});
+    buttons.push_back(Button{Point{0, 60}, 53, 20, "Save", std::bind(&FileMenu::save, this)});
+    buttons.push_back(Button{Point{0, 80}, 53, 20, "Exit", std::bind(&FileMenu::exit, this)});
     visible = false;
 }
 
@@ -23,4 +24,6 @@ void FileMenu::save() {
 
 void FileMenu::exit() {
     glutLeaveMainLoop();
+}
+
 }

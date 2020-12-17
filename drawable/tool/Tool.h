@@ -2,6 +2,7 @@
 
 #include "../../board/Canvas.h"
 #include "../../input/Mouse.h"
+namespace drawIt{
 
 class Tool {
     public:
@@ -12,3 +13,5 @@ class Tool {
             return canvas.inside(Mouse::getPosition());
         }
 };
+
+}

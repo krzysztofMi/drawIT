@@ -1,6 +1,9 @@
 #include "Mouse.h"
 #include <iostream>
 #include <GL/freeglut.h>
+#include "../board/Board.h"
+
+namespace drawIt{
 
 Point Mouse::position = Point{0, 0};
 int Mouse::button = -10;
@@ -79,8 +82,10 @@ void Mouse::displayPointer() {
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glLineWidth(2.0f);
 	glPushMatrix();
-	glTranslatef(position.getX(), glutGet(GLUT_WINDOW_HEIGHT) - position.getY(), 1.0f);
+	glTranslatef(position.getX(), Board::screenHeight - position.getY(), 1.0f);
 	glScalef(5.0f, 5.0f, 1.0f);
 	drawPointer();
 	glPopMatrix();
+}
+
 }

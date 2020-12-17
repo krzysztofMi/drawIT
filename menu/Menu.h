@@ -4,6 +4,7 @@
 #include <vector>
 #include "../drawable/Drawable.h"
 #include "../drawable/others/Button.h"
+namespace drawIt{
 
 class Menu: public Drawable {
     protected:
@@ -18,3 +19,5 @@ class Menu: public Drawable {
             }
         }
 };
+
+}

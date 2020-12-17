@@ -8,9 +8,11 @@
 #include "Canvas.h"
 #include "../drawable/tool/Tool.h"
 
+namespace drawIt{
+
 class Board {
     private: 
-       int screenHeight, screenWidth;
+       int windowWidth, windowHeight;
        std::vector<std::shared_ptr<Drawable>> drawable;
        MainMenu menu;
        Toolbar toolbar;
@@ -20,11 +22,19 @@ class Board {
        void operator=(const Board&);
        void switchTool();
     protected:
-        Board(const int screenHeight, const int screenWidth);
+        Board();
     public:
-        static Board& getInstance(const int screenHeight, const int screenWidth);
+        static int screenHeight;
+        static int screenWidth;
+
+        static Board& getInstance(const int windowWidth, const int windowHeight);
         static Board& getInstance();
 
+        static void setWindowSize();
+        static void setWindowSize(int x, int y);
         void display();
         void clear(); 
+        void switchToolbar();
 };
+
+}

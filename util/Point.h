@@ -1,4 +1,5 @@
 #pragma once
+namespace drawIt{
 
 class Point {
     protected:
@@ -11,3 +12,5 @@ class Point {
         int getX() const { return this->x; }
         int getY() const { return this->y; }
 };
+
+}

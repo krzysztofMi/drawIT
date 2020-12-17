@@ -5,6 +5,8 @@
 #include "../../util/Color.h"
 #include "../shape/Rectangle.h"
 #include "Text.h"
+namespace drawIt{
+
 class Button;
 
 class Button : public Rectangle{
@@ -26,3 +28,5 @@ class Button : public Rectangle{
         bool callAction();
         ~Button() {};
 };
+
+}
