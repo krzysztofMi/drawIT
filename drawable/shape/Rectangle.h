@@ -10,14 +10,19 @@ namespace drawIt {
 class Rectangle : public Shape {
     protected:
         Point point;
+        Color color;
         int width, height;
-        
-        void displayRectangle(Color color);
+        bool fill;
+        void displayEmpty();
+        void displayFill();
     public:
         Rectangle(const int xPos, const int yPos,
                const int width, const int height);
         Rectangle(const Point point,
                 const int width, const int height);
+        Rectangle(const Point point,
+                const int width, const int height,
+                Color color, bool fill);
 
         bool inside(const Point& point) override;
         void display() override;

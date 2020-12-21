@@ -3,10 +3,10 @@
 namespace drawIt{
 
 Canvas::Canvas(const Point point, const int dimX, const int dimY)
-    : Rectangle(point, dimX, dimY) {}
+    : Rectangle(point, dimX, dimY, Color{1.0f, 1.0f, 1.0f}, true) {}
 
 void Canvas::display() {
-    displayRectangle(Color{1.0, 1.0, 1.0});
+    displayFill();
     for(auto item : drawable) {
         item->display();
     }

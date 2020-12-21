@@ -8,10 +8,10 @@ namespace drawIt{
 class Toolbar : public Menu{
     private:
         Mode mode;
-        bool fill = false;
         bool change = false;
     public: 
         static Color color;
+        static bool fill;
         Toolbar();
         bool getChange() {return change; }
         void setChange(bool change) {this->change = change;}

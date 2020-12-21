@@ -29,10 +29,14 @@ Button::Button(const Point point,
 void Button::display() {
     if(visible) {
         if(mouseHover()) {
-            displayRectangle(Color{0.2, 0.2, 0.2});
+            color = Color{0.1, 0.2, 0.3};
+            displayFill();
             mouseClick();
         } 
-        else { displayRectangle(Color{0.64f, 0.63f, 0.63f});}
+        else { 
+            color = Color{0.5, 0.6, 0.7};
+            displayFill();
+        }
         if(text != nullptr) {
             text->display();
         }

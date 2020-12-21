@@ -13,6 +13,7 @@ bool Mouse::released = false;
 void Mouse::move(const int posX, const int posY) {
     Mouse::position.setX(posX);
     Mouse::position.setY(posY);
+    std::cout<<position.getX() << " "<< position.getY() << std::endl;
 }
 
 void Mouse::click(const int button, const int state, const int posX, const int posY) {

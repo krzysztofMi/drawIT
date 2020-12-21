@@ -1,9 +1,13 @@
 #include "Board.h"
+#include <iostream>
+#include <GL/freeglut.h>
 #include "../menu/MainMenu.h"
 #include "../menu/Toolbar.h"
 #include "../drawable/tool/Pencil.h"
 #include "../drawable/tool/RectangleTool.h"
-#include <iostream>
+#include "../drawable/tool/LineTool.h"
+
+
 namespace drawIt{
 
 int Board::screenWidth = 0;
@@ -37,6 +41,9 @@ void Board::switchTool() {
             case Mode::PENCIL:
                 tool = std::make_shared<Pencil>();
                 break;
+            case Mode::LINE:
+                tool = std::make_shared<LineTool>();
+                break;
             case Mode::RECTANGLE:
                 tool = std::make_shared<RectangleTool>();
                 break;
@@ -54,6 +61,12 @@ void Board::setWindowSize() {
 void Board::setWindowSize(int x, int y) {
     screenWidth = x;
     screenHeight = y;
+    glViewport(0, 0, x, y); // reset the viewport
+    glMatrixMode(GL_PROJECTION); // modify the projection matrix
+    glLoadIdentity();            // load an identity matrix into the projection matrix
+    glOrtho(0, x, 0, y, -1.0, 1.0); // create new projection matrix
+    glMatrixMode(GL_MODELVIEW); // return to the model matrix
+    glLoadIdentity();  
 }
 
 void Board::switchToolbar() {

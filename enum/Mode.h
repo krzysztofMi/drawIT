@@ -2,7 +2,7 @@
 namespace drawIt{
 
 enum class Mode{
-    PENCIL, RECTANGLE, TRAIANGLE, CIRCLE
+    PENCIL, LINE, RECTANGLE, TRAIANGLE, CIRCLE
 };
 
 }
