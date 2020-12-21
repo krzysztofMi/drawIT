@@ -6,6 +6,7 @@
 #include "../drawable/tool/Pencil.h"
 #include "../drawable/tool/RectangleTool.h"
 #include "../drawable/tool/LineTool.h"
+#include "../drawable/tool/TriangleTool.h"
 
 
 namespace drawIt{
@@ -46,6 +47,9 @@ void Board::switchTool() {
                 break;
             case Mode::RECTANGLE:
                 tool = std::make_shared<RectangleTool>();
+                break;
+            case Mode::TRAIANGLE:
+                tool = std::make_shared<TriangleTool>();
                 break;
             default:
                 break;
