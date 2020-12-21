@@ -1,20 +1,20 @@
 #pragma once
 
 #include "Tool.h"
-#include "../shape/Rectangle.h"
+#include "../shape/BorderRectangle.h"
 #include <memory> 
 namespace drawIt{
 
 class RectangleTool: public Tool {
     private:
-        std::shared_ptr<Rectangle> rectangle = nullptr;
+        std::shared_ptr<BorderRectangle> rectangle = nullptr;
     public:
         void draw(Canvas& canvas) {
             if(insideCanvas(canvas)) {
                 if(Mouse::leftClicked()) {
                     Point mousePosition = Mouse::getPosition();
                     if(rectangle == nullptr) {
-                        rectangle = std::make_shared<Rectangle>(
+                        rectangle = std::make_shared<BorderRectangle>(
                             Mouse::getPosition(), 0, 0);
                         canvas.draw(rectangle);
                     } else {

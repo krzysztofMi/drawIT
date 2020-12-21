@@ -13,6 +13,7 @@ class Canvas : public Rectangle {
         Canvas(const Point point, const int dimX, const int dimY);
         void draw(std::shared_ptr<Drawable> item);
         std::shared_ptr<Drawable> getLastDraw();
+        void resize();
         void removeLast();
         void clean();
         void display() override;

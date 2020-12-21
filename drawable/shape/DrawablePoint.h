@@ -7,13 +7,14 @@
 namespace drawIt{
 
 class DrawablePoint: public Point, public Shape {
+    private:
+        Color c;
     public:
-        DrawablePoint(): Point() {};
-        DrawablePoint(const int x,const int y): Point(x, y) {};
-        DrawablePoint(Point point): Point(point.getX(), point.getY()) {}
+        DrawablePoint(): Point(), c{Toolbar::color} {};
+        DrawablePoint(const int x,const int y): Point(x, y), c{Toolbar::color} {};
+        DrawablePoint(Point point): Point(point.getX(), point.getY()), c{Toolbar::color} {}
 
         void display() override {
-            Color c = Toolbar::color;
             glColor3f(c.getR(), c.getG(), c.getB());
             glBegin(GL_POINTS);
                 glVertex2i(x, Board::screenHeight-y);

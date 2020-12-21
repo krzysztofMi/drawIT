@@ -11,6 +11,7 @@ namespace drawIt{
 
 
     void Circle::displayFill() {
+        glColor3f(color.getR(), color.getG(), color.getB());
         glBegin(GL_TRIANGLE_FAN);
             glVertex2f(point.getX(), Board::screenHeight - point.getY());
             for(int i = 0; i < 360; i++)
@@ -24,6 +25,7 @@ namespace drawIt{
     }
 
     void Circle::displayEmpty() {
+        glColor3f(color.getR(), color.getG(), color.getB());
         glBegin(GL_LINE_LOOP);
         for(int i = 0; i < 360; i++)
         {
@@ -38,7 +40,6 @@ namespace drawIt{
 
     void Circle::display() {
         if(visible) {
-            glColor3f(color.getR(), color.getG(), color.getB());
             if(fill) {
                 displayFill();
             } else {

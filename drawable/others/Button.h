@@ -30,6 +30,7 @@ class Button : public Rectangle{
         bool callAction();
 
         void setBackgroundColor(const Color& color) {this->backgroundColor = color; }
+        void setHoverColor(const Color& color) { this->hoverColor = color; }
         ~Button() {};
 };
 

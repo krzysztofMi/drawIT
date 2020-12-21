@@ -11,6 +11,7 @@ class Toolbar : public Menu{
         bool change = false;
     public: 
         static Color color;
+        static Color borderColor;
         static bool fill;
         Toolbar();
         bool getChange() {return change; }

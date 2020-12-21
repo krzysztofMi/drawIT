@@ -1,14 +1,14 @@
 #pragma once
 
 #include "Tool.h"
-#include "../shape/Circle.h"
+#include "../shape/BorderCircle.h"
 #include "../../board/Board.h"
 
 namespace drawIt{
 
     class CircleTool: public Tool {
         private:
-            std::shared_ptr<Circle> circle;
+            std::shared_ptr<BorderCircle> circle;
         public:
         void draw(Canvas& canvas){
             if(insideCanvas(canvas)) {
@@ -16,8 +16,7 @@ namespace drawIt{
                     Point mousePosition = Mouse::getPosition();
                     if(circle == nullptr) {
                         mousePosition.setY(mousePosition.getY());
-                        std::cout<<mousePosition.getY()<<std::endl;
-                        circle = std::make_shared<Circle>(
+                        circle = std::make_shared<BorderCircle>(
                             mousePosition);
                         canvas.draw(circle);
                     } else {

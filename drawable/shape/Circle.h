@@ -6,7 +6,7 @@
 namespace drawIt {
 
 class Circle: public Shape {
-    private:
+    protected:
         Point point;
         float radius;
         Color color;
