@@ -26,6 +26,7 @@ class Board {
     public:
         static int screenHeight;
         static int screenWidth;
+        static bool resized; 
 
         static Board& getInstance(const int windowWidth, const int windowHeight);
         static Board& getInstance();

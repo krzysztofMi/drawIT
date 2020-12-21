@@ -11,6 +11,8 @@ class Button;
 
 class Button : public Rectangle{
     private:
+        Color hoverColor;
+        Color backgroundColor; 
         std::shared_ptr<Text> text;
         std::function<void()> action;
         bool mouseHover();
@@ -26,6 +28,8 @@ class Button : public Rectangle{
                 const int width, const int height, std::string text, std::function<void()> action);
         void display() override;
         bool callAction();
+
+        void setBackgroundColor(const Color& color) {this->backgroundColor = color; }
         ~Button() {};
 };
 

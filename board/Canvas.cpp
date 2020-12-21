@@ -1,5 +1,7 @@
 #include "Canvas.h"
 #include <iostream>
+#include "Board.h"
+
 namespace drawIt{
 
 Canvas::Canvas(const Point point, const int dimX, const int dimY)
@@ -9,6 +11,11 @@ void Canvas::display() {
     displayFill();
     for(auto item : drawable) {
         item->display();
+    }
+    if(Board::resized) {
+        this->setWidth(Board::screenWidth);
+        this->setHeigth(Board::screenHeight);
+        Board::resized = false;
     }
 }
 

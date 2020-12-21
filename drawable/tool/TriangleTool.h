@@ -19,7 +19,6 @@ class TriangleTool: public Tool {
                         canvas.draw(triangle);
                     } else {
                         canvas.removeLast();
-                        std::cout<<"HI"<<std::endl;
                         triangle->setByDistance(mousePosition);
                         canvas.draw(triangle);
                     }

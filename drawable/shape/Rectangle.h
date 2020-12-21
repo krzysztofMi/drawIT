@@ -26,7 +26,8 @@ class Rectangle : public Shape {
 
         bool inside(const Point& point) override;
         void display() override;
-
+        
+        void setColor(const Color& color) {this->color = color; }
         void setWidth(const int width) {this->width = width;}
         void setHeigth(const int height) {this->height = height;}
         Point getPoint() { return this->point; }

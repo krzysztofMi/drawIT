@@ -7,12 +7,13 @@
 #include "../drawable/tool/RectangleTool.h"
 #include "../drawable/tool/LineTool.h"
 #include "../drawable/tool/TriangleTool.h"
-
+#include "../drawable/tool/CircleTool.h"
 
 namespace drawIt{
 
 int Board::screenWidth = 0;
 int Board::screenHeight = 0;
+bool Board::resized = false;
 
 Board::Board() : 
         canvas{Point{10, 10}, Board::screenWidth, Board::screenHeight}, menu{}, toolbar{} {
@@ -51,6 +52,9 @@ void Board::switchTool() {
             case Mode::TRAIANGLE:
                 tool = std::make_shared<TriangleTool>();
                 break;
+            case Mode::CIRCLE:
+                tool = std::make_shared<CircleTool>();
+                break;
             default:
                 break;
         }
@@ -70,7 +74,8 @@ void Board::setWindowSize(int x, int y) {
     glLoadIdentity();            // load an identity matrix into the projection matrix
     glOrtho(0, x, 0, y, -1.0, 1.0); // create new projection matrix
     glMatrixMode(GL_MODELVIEW); // return to the model matrix
-    glLoadIdentity();  
+    glLoadIdentity();
+    Board::resized = true;
 }
 
 void Board::switchToolbar() {
