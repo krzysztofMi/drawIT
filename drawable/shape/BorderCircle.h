@@ -12,7 +12,11 @@ namespace drawIt {
             BorderCircle(Point x)
             : Circle(x),
              borderColor{Toolbar::borderColor}, backgroundColor{Toolbar::color} {}
-
+             BorderCircle(Point x, float r, Color bgColor, Color brColor, bool fill): 
+                Circle(x, r), backgroundColor{bgColor}, borderColor{brColor} {
+                    this->fill = fill;
+                    this->visible = true;
+                }
              void display() override {
                 if(visible) {
                     if(fill) {
@@ -26,5 +30,13 @@ namespace drawIt {
                     }
                 }
              }
+            std::string toString() override{
+                std::ostringstream stream;
+                stream<<"Circle{"<<point<<","<<
+                radius<<","<<
+                backgroundColor<<","<<
+                borderColor<<","<<fill<<"}\n";
+                return stream.str();
+            }
     };
 }

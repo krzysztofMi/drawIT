@@ -9,6 +9,8 @@ namespace drawIt{
         point{point}, radius{0}, 
         color{Toolbar::color}, fill{Toolbar::fill} {}
 
+    Circle::Circle(const Point point, float radius):
+        point{point}, radius{radius}, color{0.0f, 0.0f, 0.0f} {}
 
     void Circle::displayFill() {
         glColor3f(color.getR(), color.getG(), color.getB());

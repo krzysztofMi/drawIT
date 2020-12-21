@@ -15,6 +15,7 @@ class Circle: public Shape {
         void displayEmpty();
     public: 
         Circle(const Point point);
+        Circle(const Point point, float radious);
         void setRadius(const float radious) { this->radius = radious; }
         void setRadiusByDistance(const Point point);
         void display() override;

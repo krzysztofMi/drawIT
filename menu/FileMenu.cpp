@@ -1,5 +1,6 @@
 #include "FileMenu.h"
 #include "../board/Board.h"
+#include "../file/FileMenager.h"
 namespace drawIt{
 
 FileMenu::FileMenu() {
@@ -15,11 +16,14 @@ void FileMenu::newFile() {
 }
 
 void FileMenu::open() {
-//TODO
+    FileMenager menager{"save.txt"};
+    Board::getInstance().clear();
+    Board::getInstance().loadShapes( menager.retriveVector() );
 }
 
 void FileMenu::save() {
-//TODO
+    FileMenager menager{"save.txt"};
+    menager.saveVector(Board::getInstance().getDrawable());
 }
 
 void FileMenu::exit() {

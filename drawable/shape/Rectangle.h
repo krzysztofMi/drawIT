@@ -30,6 +30,7 @@ class Rectangle : public Shape {
         void setColor(const Color& color) {this->color = color; }
         void setWidth(const int width) {this->width = width;}
         void setHeigth(const int height) {this->height = height;}
+    
         Point getPoint() { return this->point; }
         ~Rectangle(){};
 };

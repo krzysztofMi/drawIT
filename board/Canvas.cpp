@@ -19,7 +19,7 @@ void Canvas::display() {
     }
 }
 
-void Canvas::draw(std::shared_ptr<Drawable> item) {
+void Canvas::draw(std::shared_ptr<Shape> item) {
     drawable.push_back(item);
 }
 
@@ -27,7 +27,7 @@ void Canvas::clean() {
     drawable.clear();
 }
 
-std::shared_ptr<Drawable> Canvas::getLastDraw() {
+std::shared_ptr<Shape> Canvas::getLastDraw() {
     return drawable.back();
 }
 

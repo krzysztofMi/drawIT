@@ -5,7 +5,9 @@
 namespace drawIt{
 
 class Shape: public Drawable {
-    virtual bool inside(const Point& point) = 0;
+    public:
+        virtual bool inside(const Point& point) = 0;
+        virtual std::string toString() {return "toDo"; }
 };
 
 }

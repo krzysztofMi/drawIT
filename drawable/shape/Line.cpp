@@ -7,6 +7,8 @@ namespace drawIt{
 
     Line::Line(Point x, Point y):
          points{x, y}, color{Toolbar::color} {}
+    Line::Line(Point x, Point y, Color c):
+        points{x, y}, color{c} {}
 
     void Line::display() {
         glColor3f(color.getR(), color.getG(), color.getB());

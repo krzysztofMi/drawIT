@@ -14,8 +14,9 @@ namespace drawIt{
             int getX() const { return this->x; }
             int getY() const { return this->y; }
             friend std::ostream& operator<<(std::ostream& os, const Point& x) {
-                   os<<x.getX()<<" "<<x.getY();
-                    return os;
+                   os<<"Point{"<<x.getX()<<","<<
+                   x.getY()<<"}";
+                   return os;
             }
     };
 

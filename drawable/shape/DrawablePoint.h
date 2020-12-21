@@ -13,6 +13,7 @@ class DrawablePoint: public Point, public Shape {
         DrawablePoint(): Point(), c{Toolbar::color} {};
         DrawablePoint(const int x,const int y): Point(x, y), c{Toolbar::color} {};
         DrawablePoint(Point point): Point(point.getX(), point.getY()), c{Toolbar::color} {}
+        DrawablePoint(const int x,const int y, Color color): Point(x, y), c{color} {};
 
         void display() override {
             glColor3f(c.getR(), c.getG(), c.getB());
@@ -26,6 +27,12 @@ class DrawablePoint: public Point, public Shape {
                 return true;
             } 
             return false;
+        }
+
+        std::string toString() {
+            std::ostringstream stream;
+            stream<<"Point{"<<x<<","<<y<<","<<c<<"}\n";
+            return stream.str();
         }
 };
 

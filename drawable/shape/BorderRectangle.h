@@ -12,7 +12,13 @@ namespace drawIt {
             BorderRectangle(Point point, int widht, int height)
             : Rectangle(point, width, height),
              borderColor{Toolbar::borderColor}, backgroundColor{Toolbar::color} {}
-
+            BorderRectangle(Point point, int widht, int height, 
+            Color brColor, Color bgColor, bool fill)
+            : Rectangle(point, width, height),
+             borderColor{borderColor}, backgroundColor{backgroundColor}{
+                 this->fill = fill;
+                 visible = true;
+             }
              void display() override {
                 if(visible) {
                     if(fill) {
@@ -25,6 +31,18 @@ namespace drawIt {
                         displayEmpty();
                     }
                 }
+             }
+
+             std::string toString() override {
+                 std::ostringstream stream;
+                 stream<<"Rectangle{"<<
+                 point<<","<<
+                 width<<","<<
+                 height<<","<<
+                 backgroundColor<<","<<
+                 borderColor<<","<<
+                 fill<<"}\n";
+                 return stream.str();
              }
     };
 }

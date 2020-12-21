@@ -36,6 +36,8 @@ class Board {
         void display();
         void clear(); 
         void switchToolbar();
+        std::vector<std::shared_ptr<Shape>> getDrawable() {return canvas.getDrawable();}
+        void loadShapes(std::vector<std::shared_ptr<Shape>> drawable) {canvas.setDrawable(drawable); }
 };
 
 }
